@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Норникель Cервис</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="header-mobile">
+    <div class="header-mobile__bg"></div>
+    <div class="header-mobile__inner">
+      <div class="header-mobile__top">
+        <a class="header-mobile__logo" href="/">
+          <img src="img/logo.svg" width="157" height="37" loading="lazy" alt="Лого">
+        </a>
+        <div class="header-mobile__close">
+          <img src="img/icons/header-close.svg" width="25" height="25" alt="Закрыть меню">
+        </div>
+      </div>
+      <nav class="header-mobile__nav">
+        <a class="header-mobile__link" href="#">Главная</a>
+        <a class="header-mobile__link" href="#">О нас</a>
+        <a class="header-mobile__link" href="#">Новости</a>
+        <a class="header-mobile__link" href="#">Управление</a>
+        <a class="header-mobile__link" href="#">Услуги</a>
+        <a class="header-mobile__link" href="#">Партнеры</a>
+        <a class="header-mobile__link" href="#">Контакты</a>
+      </nav>
+    </div>
+  </div>
+  <div class="modal">
+    <div class="modal__bg"></div>
+    <div class="modal__window third" id="successModal">
+      <h2 class="modal__title">Спасибо, ваши данные успешно отправлены</h2>
+      <p class="modal__subtitle">Мы свяжемся с вами в ближайшее время</p>
+      <div class="modal__bottom">
+        <button class="modal__back modal__close" type="button">Отлично</button>
+      </div>
+    </div>
+  </div>
+  <header class="header second">
+    <div class="container">
+      <div class="header__block">
+        <a class="header__logo" href="/">
+          <img src="img/logo.svg" width="157" height="37" alt="Норникель сервис">
+        </a>
+        <div class="header__main">
+          <a class="header__button" href="#">Сайты группы</a>
+          <nav class="header__nav">
+            <a class="header__link" href="#">Главная</a>
+            <a class="header__link" href="#">О нас</a>
+            <a class="header__link" href="#">Новости</a>
+            <a class="header__link" href="#">Управление</a>
+            <a class="header__link" href="#">Услуги</a>
+            <a class="header__link" href="#">Партнеры</a>
+            <a class="header__link" href="#">Контакты</a>
+          </nav>
+        </div>
+        <button class="header__burger">
+              <img src="img/icons/header-burger.svg" width="22" height="12" alt="Открыть меню">
+            </button>
+      </div>
+    </div>
+  </header>
+  <section class="contacts">
+    <div class="container">
+      <div class="contacts__global">
+        <h1 class="contacts__title">Свяжитесь<br> с нами</h1>
+        <form class="contacts__form" action="/">
+          <div class="contacts__wrapper">
+            <div class="contacts__item">
+              <input class="contacts__input" type="text" placeholder="Ваше имя">
+              <span class="contacts__error">Ой, похоже вы ошиблись</span>
+            </div>
+            <div class="contacts__item">
+              <input class="contacts__input" type="text" placeholder="Ваше фамилия">
+              <span class="contacts__error">Ой, похоже вы ошиблись</span>
+            </div>
+            <div class="contacts__item">
+              <input class="contacts__input" type="text" placeholder="Ваш телефон">
+              <span class="contacts__error">Ой, похоже вы ошиблись</span>
+            </div>
+            <div class="contacts__item">
+              <input class="contacts__input" type="email" placeholder="Ваша почта">
+              <span class="contacts__error">Ой, похоже вы ошиблись</span>
+            </div>
+            <textarea class="contacts__textarea full" placeholder="Ваше сообщение"></textarea>
+          </div>
+          <div class="contacts__bottom">
+            <label class="contacts__label"><input class="contacts__checkbox" type="checkbox"> Я ознакомлен(а) с Политикой конфиденциальности</label>
+            <button class="contacts__button" data-modal="successModal">Отправить</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="map-section">
+    <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/11311/norilsk/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Норильск</a><a href="https://yandex.ru/maps/11311/norilsk/house/talnakhskaya_ulitsa_39a/bEEYdAZgT0wPQFhjfX90cH1rbQ==/?ll=88.211068%2C69.351146&utm_medium=mapframe&utm_source=maps&z=18.6" style="color:#eee;font-size:12px;position:absolute;top:14px;">Талнахская улица, 39А на карте Норильска — Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?ll=88.211068%2C69.351146&mode=whatshere&whatshere%5Bpoint%5D=88.210698%2C69.351189&whatshere%5Bzoom%5D=17&z=18.6" width="1920" height="600" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe></div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <h2 class="footer__title">Мы делаем мир надежнее</h2>
+        <nav class="footer__nav">
+          <a class="footer__link" href="#">О нас</a>
+          <a class="footer__link" href="#">Новости</a>
+          <a class="footer__link" href="#">Вакансии</a>
+          <a class="footer__link" href="#">Партнеры</a>
+          <a class="footer__link" href="#">Управление</a>
+          <a class="footer__link" href="#">Услуги</a>
+          <a class="footer__link" href="#">Контакты</a>
+        </nav>
+      </div>
+      <div class="footer__middle">
+        <div class="footer__left">
+          <div class="footer__contacts">
+            <a class="footer__contact" href="#" target="_blank">
+              <img src="img/icons/footer-tg.svg" width="43" height="43" alt="Телеграм">
+            </a>
+            <a class="footer__contact" href="#" target="_blank">
+              <img src="img/icons/footer-vk.svg" width="43" height="43" alt="Вконтакте">
+            </a>
+            <div class="footer__label">Напишите нам</div>
+          </div>
+        </div>
+        <div class="footer__right">
+          <div class="footer__info">
+            <img src="img/icons/footer-map.svg" width="18" height="15" alt="Адрес">
+            663305, Красноярский край, г Норильск, ул Талнахская, 39А
+          </div>
+          <div class="footer__info">
+            <img src="img/icons/footer-mail.svg" width="18" height="15" alt="E-mail">
+            nnspriemnaya@nornik.ru
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <a class="footer__logo" href="/">
+          <img src="img/footer-logo.svg" width="187" height="43" alt="Логотип">
+        </a>
+        <div class="footer__san">
+          <p class="footer__time">с Пн по Вс с 9:00 до 20:00</p>
+          <a class="footer__phone" href="tel:+73919254461">+7 (3919) 25–44–61</a>
+        </div>
+        <button class="footer__up">
+          <img src="img/icons/button-up.svg" width="44" height="44" alt="Вверх">
+        </button>
+      </div>
+    </div>
+    <div class="footer__line"></div>
+    <div class="container">
+      <div class="footer_do">
+        <span class="footer__copy">© 2018-2025 ООО "НН-Сервис"</span>
+        <a class="footer__privacy" href="#">Политика в области обработки персональных данных</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/swiper.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+
+</html>

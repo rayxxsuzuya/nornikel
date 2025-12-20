@@ -84,6 +84,17 @@ html {
   margin: 0 auto;
 }
 
+.container-full {
+  max-width: 100%;
+  padding: 0 30px;
+}
+
+@media (max-width: 1000px) {
+  .container-full {
+    padding: 0 15px;
+  }
+}
+
 .hero {
   position: relative;
 }
@@ -171,7 +182,7 @@ html {
   font-weight: 500;
   font-size: 20px;
   color: #fff;
-  padding: 23px 69px;
+  padding: 18px 69px;
   border: 1px solid #fff;
   border-radius: 32px;
   transition: 0.3s;
@@ -230,6 +241,7 @@ html {
   display: flex;
   align-items: flex-end;
   gap: 24px;
+  height: 60px;
   width: fit-content;
 }
 
@@ -256,6 +268,13 @@ html {
 .work {
   padding: 105px 0;
   position: relative;
+}
+
+@media (min-width: 1000px) {
+  .work .container-small {
+  max-width: 100%;
+  padding-left: 129px;
+}
 }
 
 .work__image {
@@ -696,25 +715,25 @@ html {
 .news__caption {
   display: block;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 17px;
   line-height: 120%;
   color: #5c5c5c;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .news__description {
   font-weight: 400;
-  font-size: 20px;
+  font-size: 17px;
   display: block;
   line-height: 120%;
   color: #5c5c5c;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .news__more {
   display: block;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 17px;
   line-height: 120%;
   color: #0077c8;
 }
@@ -751,7 +770,7 @@ html {
 }
 
 .footer {
-  padding: 40px 0 55px;
+  padding: 40px 0 30px;
   background: #004c97;
 }
 
@@ -760,15 +779,15 @@ html {
   align-items: flex-start;
   gap: 30px;
   justify-content: space-between;
-  margin-bottom: 87px;
+  margin-bottom: 47px;
 }
 
 .footer__title {
   font-weight: 400;
-  font-size: 60px;
+  font-size: 45px;
   line-height: 100%;
   color: #fff;
-  max-width: 478px;
+  max-width: 366px;
   width: 100%;
   margin-bottom: 0;
 }
@@ -793,7 +812,7 @@ html {
   justify-content: space-between;
   gap: 30px;
   padding-right: 81px;
-  margin-bottom: 78px;
+  margin-bottom: 40px;
 }
 
 .footer__contacts {
@@ -835,7 +854,7 @@ html {
   display: flex;
   align-items: flex-end;
   gap: 148px;
-  padding-bottom: 46px;
+  padding-bottom: 30px;
 }
 
 .footer__san {
@@ -853,7 +872,7 @@ html {
 .footer__phone {
   display: block;
   font-weight: 400;
-  font-size: 60px;
+  font-size: 35px;
   line-height: 100%;
   color: #fff;
 }
@@ -1760,7 +1779,7 @@ marquee {
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  padding-top: 49px;
+  padding-top: 30px;
 }
 
 .footer__copy {

@@ -44,50 +44,43 @@ if (upButton) {
 
 if (document.querySelector('.spage')) {
   const tabs = document.querySelectorAll('.spage__tab');
-const contents = document.querySelectorAll('.spage__content');
-const heroTitle = document.querySelector('.services-page-hero__title');
-const heroSection = document.querySelector('.service-page-hero');
+  const contents = document.querySelectorAll('.spage__content');
+  const heroTitle = document.querySelector('.services-page-hero__title');
+  const heroSection = document.querySelector('.service-page-hero');
 
-// Функция переключения табов
-function switchTab(index) {
-  // Убираем активный класс со всех табов и контента
-  tabs.forEach(tab => tab.classList.remove('active'));
-  contents.forEach(content => content.classList.remove('active'));
-  
-  // Добавляем активный класс к выбранному табу и контенту
-  tabs[index].classList.add('active');
-  contents[index].classList.add('active');
-  
-  // Меняем заголовок H1
-  heroTitle.textContent = tabs[index].textContent;
-  
-  // Получаем путь к фону из data-атрибута и меняем фон
-  const bgImage = tabs[index].getAttribute('data-bg');
-  if (bgImage) {
-    heroSection.style.backgroundImage = `url(${bgImage})`;
+  function switchTab(index) {
+    tabs.forEach(tab => tab.classList.remove('active'));
+    contents.forEach(content => content.classList.remove('active'));
+
+    tabs[index].classList.add('active');
+    contents[index].classList.add('active');
+
+    // Меняем заголовок H1
+    heroTitle.textContent = tabs[index].textContent;
+
+    const bgImage = tabs[index].getAttribute('data-bg');
+    if (bgImage) {
+      heroSection.style.backgroundImage = `url(${bgImage})`;
+    }
   }
-}
 
-// Добавляем обработчики событий на каждый таб
-tabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => {
-    switchTab(index);
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => {
+      switchTab(index);
+    });
   });
-});
 
-// Устанавливаем начальный фон из первого активного таба
-const activeTab = document.querySelector('.spage__tab.active');
-if (activeTab) {
-  const initialBg = activeTab.getAttribute('data-bg');
-  if (initialBg) {
-    heroSection.style.backgroundImage = `url(${initialBg})`;
+  const activeTab = document.querySelector('.spage__tab.active');
+  if (activeTab) {
+    const initialBg = activeTab.getAttribute('data-bg');
+    if (initialBg) {
+      heroSection.style.backgroundImage = `url(${initialBg})`;
+    }
   }
-}
 
-// Настраиваем стили фона
-heroSection.style.backgroundSize = 'cover';
-heroSection.style.backgroundPosition = 'center';
-heroSection.style.transition = 'background-image 0.5s ease-in-out';
+  heroSection.style.backgroundSize = 'cover';
+  heroSection.style.backgroundPosition = 'center';
+  heroSection.style.transition = 'background-image 0.5s ease-in-out';
 }
 
 const heroImages = new Swiper('.hero__images', {
@@ -122,7 +115,6 @@ const introSlider = new Swiper('.intro__slider', {
   }
 });
 
-// Синхронизация слайдеров
 let isHeroChanging = false;
 let isIntroChanging = false;
 
@@ -130,7 +122,9 @@ heroImages.on('slideChange', function () {
   if (!isIntroChanging) {
     isHeroChanging = true;
     introSlider.slideToLoop(this.realIndex, 0);
-    setTimeout(() => { isHeroChanging = false; }, 50);
+    setTimeout(() => {
+      isHeroChanging = false;
+    }, 50);
   }
 });
 
@@ -138,11 +132,12 @@ introSlider.on('slideChange', function () {
   if (!isHeroChanging) {
     isIntroChanging = true;
     heroImages.slideToLoop(this.realIndex, 0);
-    setTimeout(() => { isIntroChanging = false; }, 50);
+    setTimeout(() => {
+      isIntroChanging = false;
+    }, 50);
   }
 });
 
-// Синхронизация при клике на пагинацию
 introSlider.on('paginationUpdate', function () {
   const bullets = document.querySelectorAll('.hero .intro__pagination .swiper-pagination-bullet');
   bullets.forEach((bullet, index) => {
@@ -150,7 +145,9 @@ introSlider.on('paginationUpdate', function () {
       if (!isIntroChanging) {
         isHeroChanging = true;
         heroImages.slideToLoop(index, 300);
-        setTimeout(() => { isHeroChanging = false; }, 350);
+        setTimeout(() => {
+          isHeroChanging = false;
+        }, 350);
       }
     });
   });
@@ -163,7 +160,9 @@ heroImages.on('paginationUpdate', function () {
       if (!isHeroChanging) {
         isIntroChanging = true;
         introSlider.slideToLoop(index, 300);
-        setTimeout(() => { isIntroChanging = false; }, 350);
+        setTimeout(() => {
+          isIntroChanging = false;
+        }, 350);
       }
     });
   });
@@ -241,6 +240,55 @@ const servicesSlider = new Swiper('.services__slider', {
   }
 });
 
+const srkSlider = new Swiper('.srk__slider', {
+  loop: true,
+  slidesPerView: 1,
+  navigation: {
+    nextEl: '.services__arrow.next',
+    prevEl: '.services__arrow.prev',
+  }
+});
+
+// Синхронизация слайдеров
+let isSrkChanging = false;
+let isServicesChanging = false;
+
+srkSlider.on('slideChange', function () {
+  if (!isServicesChanging) {
+    isSrkChanging = true;
+    servicesSlider.slideToLoop(this.realIndex, 0);
+    setTimeout(() => {
+      isSrkChanging = false;
+    }, 50);
+  }
+});
+
+servicesSlider.on('slideChange', function () {
+  if (!isSrkChanging) {
+    isServicesChanging = true;
+    srkSlider.slideToLoop(this.realIndex, 0);
+    setTimeout(() => {
+      isServicesChanging = false;
+    }, 50);
+  }
+});
+
+// Синхронизация при клике на пагинацию
+servicesSlider.on('paginationUpdate', function () {
+  const bullets = document.querySelectorAll('.services .intro__pagination .swiper-pagination-bullet');
+  bullets.forEach((bullet, index) => {
+    bullet.addEventListener('click', function () {
+      if (!isServicesChanging) {
+        isSrkChanging = true;
+        srkSlider.slideToLoop(index, 300);
+        setTimeout(() => {
+          isSrkChanging = false;
+        }, 350);
+      }
+    });
+  });
+});
+
 const aboutSlider = new Swiper('.about__slider', {
   loop: true,
   slidesPerView: 1,
@@ -276,7 +324,7 @@ const npageSlider = new Swiper('.npage__slider', {
   breakpoints: {
     940: {
       slidesPerView: 'auto',
-  spaceBetween: 28,
+      spaceBetween: 28,
     },
     750: {
       slidesPerView: 3,
@@ -347,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.modal__form');
   if (form) {
     form.addEventListener('submit', (e) => {
-      e.preventDefault(); 
+      e.preventDefault();
       if (firstModal) {
         firstModal.closest('.modal').classList.remove('active');
       }
@@ -381,4 +429,51 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const hhSection = document.querySelector('.hh');
+  const images = document.querySelectorAll('.hh__image');
+  const labels = document.querySelectorAll('.hh__label');
+  
+  function handleScroll() {
+    const sectionTop = hhSection.getBoundingClientRect().top;
+    
+    if (sectionTop <= 350) {
+      const progress = Math.min(Math.max((350 - sectionTop) / 600, 0), 1);
+      
+      const maxShift = 350;
+      const shift = progress * maxShift;
+      
+      images.forEach(img => {
+        img.style.transform = `translateX(-${shift}px)`;
+      });
+      
+      labels.forEach(label => {
+        label.style.transform = `translateX(-${shift}px)`;
+      });
+    } else {
+      images.forEach(img => {
+        img.style.transform = `translateX(0)`;
+      });
+      
+      labels.forEach(label => {
+        label.style.transform = `translateX(0)`;
+      });
+    }
+  }
+  
+  let ticking = false;
+  
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  
+  handleScroll();
 });
